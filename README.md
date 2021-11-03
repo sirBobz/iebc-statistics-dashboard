@@ -10,9 +10,9 @@ The application also demonstrates how to upload a large Excel file to a database
 3. Install Composer Dependencies. `composer install`
 4. Install NPM Dependencies.  `npm install`
 5. Copy `.env.example` file to `.env` 
-6Generate an app encryption key.  `php artisan key:generate`
-7Set up your database credentials then run `php artisan migrate` to create the tables.
-8Set up queue for file upload: I recommend redis queue driver on `.env` file.
-9Use the `php artisan queue:work` to start a queue worker and process new jobs as they are pushed onto the queue.
-10`php artisan serve`
-11Visit `localhost:8000` in your browser.
+6. Generate an app encryption key.  `php artisan key:generate`
+7. Set up your database credentials then run `php artisan migrate` to create the tables.
+8. Set up queue for file upload: I recommend redis queue driver on `.env` file.
+9. Use the `php artisan queue:work` to start a queue worker and process new jobs as they are pushed onto the queue.
+10. `php artisan serve`
+11. Visit `localhost:8000` in your browser.
