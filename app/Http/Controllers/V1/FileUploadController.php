@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\V1;
 
-use App\DataTables\SalesDataTable;
+use App\DataTables\DemographicDataTable;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
@@ -14,11 +15,19 @@ class FileUploadController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(SalesDataTable $dataTable, Request $request)
+    public function index(DemographicDataTable $dataTable, Request $request)
     {
         return $dataTable->render('V1.File.index');
     }
-
+    /**
+     * Present the data from the DB
+     *
+     * @param
+     * @return\Illuminate\Http\Response
+     */
+    public  function  presentation(){
+       return view('V1.File.presentation');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -84,4 +93,5 @@ class FileUploadController extends Controller
     {
         //
     }
+
 }

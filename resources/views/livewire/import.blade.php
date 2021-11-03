@@ -1,7 +1,7 @@
 <div>
     <form wire:submit.prevent="import" enctype="multipart/form-data">
         @csrf
-        <input type="file" wire:model="importFile" accept=".csv" required class="@error('import_file') is-invalid @enderror">
+        <input type="file" wire:model="importFile" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required class="@error('import_file') is-invalid @enderror">
         <button class="btn btn-outline-secondary">Import</button>
         @error('import_file')
             <span class="invalid-feedback" role="alert">{{ $message }}</span>

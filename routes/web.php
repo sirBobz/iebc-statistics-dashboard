@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\V1\MarvelApiController;
 use App\Http\Controllers\V1\FileUploadController;
 
 /*
@@ -15,14 +14,11 @@ use App\Http\Controllers\V1\FileUploadController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [FileUploadController::class, 'index']);
 
 Route::resource('files', FileUploadController::class);
 
-Route::get('/apis/page/{page?}', [MarvelApiController::class, 'index']);
-Route::resource('apis', MarvelApiController::class);
+Route::get('/data-insights', [FileUploadController::class, 'presentation'])->name('presentation');
+
 
 

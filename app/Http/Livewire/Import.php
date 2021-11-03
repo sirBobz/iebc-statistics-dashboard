@@ -21,7 +21,7 @@ class Import extends Component
     public function import()
     {
         $this->validate([
-            'importFile' => 'required|file|mimes:csv,txt|max:100000',
+            'importFile' => 'required|file|mimes:csv,txt,xls,xlsx|max:100000',
         ]);
 
         $this->importing = true;

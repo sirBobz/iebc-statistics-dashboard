@@ -26,8 +26,6 @@
 <body>
     <!--Main Navigation-->
     <header>
-
-
         <nav class="navbar navbar-expand-lg navbar-dark primary-color-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('') }}"><strong>{{ config('app.name', 'Demo App') }}</strong></a>
@@ -38,11 +36,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item {{ Route::is('apis.index') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('apis.index') }}">Marvel API</a>
-                        </li>
                         <li class="nav-item {{ Route::is('files.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('files.index') }}">File Upload</a>
+                        </li>
+                        <li class="nav-item {{ Route::is('presentation') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('presentation') }}">Data presentation</a>
                         </li>
                     </ul>
                 </div>

@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Imports\SaleFileUpload;
+use App\Imports\DemographicFileUpload;
 use Maatwebsite\Excel\Excel;
 use Illuminate\Bus\Batchable;
 
@@ -35,6 +35,6 @@ class ImportJob implements ShouldQueue
      */
     public function handle()
     {
-        (new SaleFileUpload)->import($this->uploadFile);
+        (new DemographicFileUpload)->import($this->uploadFile);
     }
 }

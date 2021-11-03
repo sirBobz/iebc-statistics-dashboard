@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Sale;
+use App\Models\Demographic;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class SalesDataTable extends DataTable
+class DemographicDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -30,7 +30,7 @@ class SalesDataTable extends DataTable
      * @param \App\Models\Sale $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Sale $model)
+    public function query(Demographic $model)
     {
         return $model::select('*');
     }
@@ -63,14 +63,17 @@ class SalesDataTable extends DataTable
     protected function getColumns()
     {
         return [
-        'InvoiceNo',
-        'StockCode',
-        'Description',
-        'Quantity',
-        'InvoiceDate',
-        'UnitPrice',
-        'CustomerID',
-        'Country',
+            "county_code",
+            "county_name",
+            "constituency_code",
+            "constituency_name",
+            "surname",
+            "other_names",
+            "party_code",
+            "political_party_name",
+            "abbreviation",
+            "votes_garnered",
+            "winning_status",
         ];
     }
 
@@ -81,6 +84,6 @@ class SalesDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Sales_' . date('YmdHis');
+        return 'demographics' . date('YmdHis');
     }
 }
