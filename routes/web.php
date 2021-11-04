@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\V1\FileUploadController;
+use App\Http\Controllers\V1\DemographicsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +14,10 @@ use App\Http\Controllers\V1\FileUploadController;
 |
 */
 
-Route::get('/', [FileUploadController::class, 'index']);
+Route::get('/', [DemographicsController::class, 'index']);
 
-Route::resource('files', FileUploadController::class);
+Route::resource('files', DemographicsController::class);
 
-Route::get('/data-insights', [FileUploadController::class, 'presentation'])->name('presentation');
+Route::get('/data-insights', [DemographicsController::class, 'presentation'])->name('presentation');
 
-
-
+Route::get('/all-get-counties', [DemographicsController::class, 'counties'])->name('get-counties');

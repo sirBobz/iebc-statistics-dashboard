@@ -6,8 +6,9 @@ use App\DataTables\DemographicDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
+use App\Models\Demographic;
 
-class FileUploadController extends Controller
+class DemographicsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,18 @@ class FileUploadController extends Controller
      * @return\Illuminate\Http\Response
      */
     public  function  presentation(){
-       return view('V1.File.presentation');
+        $counties = Demographic::select('county_name')->whereNotNull('county_name')->distinct()->get();
+
+        foreach ($counties as $key => $value){
+            $counties_array[] = json_decode($value)->county_name;
+        }
+        var_dump($counties_array);
+       // return view('V1.File.presentation', compact('counties_array'));
+    }
+
+    public  function counties()
+    {
+        return Demographic::distinct()->whereNotNull('county_name')->get('county_name');
     }
     /**
      * Show the form for creating a new resource.
